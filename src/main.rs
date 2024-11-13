@@ -214,11 +214,6 @@ fn print_eval_data(eval: Vec<&str>, c: &String, append_nl: bool) {
         }
     }
     let tokens = eval_tokens.iter().map(|t| t.name.as_ref()).collect::<Vec<_>>();
-    // The order of tokens in the API response will be different
-    let mut index_map = std::collections::HashMap::new();
-    for (i, token) in eval_tokens.iter().enumerate() {
-        index_map.insert(token.name.to_string(), i);
-    }
     let data = get_data(tokens.clone(), c);
     println!("");
     for e in &eval_tokens {
