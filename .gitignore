@@ -1,1 +1,4 @@
-/target
+*
+!cpcli.scm
+!LICENSE
+!README.md

@@ -1,6 +1,6 @@
 # cpcli
 
-`cpcli` (crypto price cli) is a simple Rust program that uses the CoinGecko API to display current exchange rates for cryptocurrencies. 
+`cpcli` (crypto price cli) uses the CoinGecko API to display current exchange rates for cryptocurrencies. 
 Being that this program is among my first publically available software projects, I welcome any recommendations on how to improve it.
 
 ## Usage
