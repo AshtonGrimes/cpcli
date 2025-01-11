@@ -197,8 +197,11 @@ Options:
                             (push conv-names name))))))))))))))
   args)
 
-(define fiat (car fiat))
 (define top (car top))
+(when (equal? (+ (length convs) (length tokens) top) 0)
+  (display help) (exit 1))
+
+(define fiat (car fiat))
 
 (define do-convs (> (length convs) 0))
 (define do-tokens (> (length tokens) 0))
