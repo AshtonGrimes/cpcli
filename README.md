@@ -33,13 +33,14 @@ $ cpcli tether:40
 
    40 USD -> 40.01 Tether
 
-$ cpcli -t 5 
+$ cpcli -t 5
 
-   1   Bitcoin  94.52K  +1.812%
-   2   Ethereum 3.26K   +1.042%
-   3   Tether   1.00    -0.008%
-   4   XRP      2.35    +3.120%
-   5   BNB      693.00  +0.786%
+   1   Bitcoin  94.36K  +1.219%
+   2   Ethereum 3.24K   -0.095%
+   3   Tether   0.99984 +0.004%
+   4   XRP      2.35    +2.574%
+   5   BNB      690.93  +0.375%
+
 ```
 
 ## License

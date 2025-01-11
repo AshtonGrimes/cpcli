@@ -92,26 +92,26 @@ Options:
 (define (format-value value)
   (when (< value 0)
     (err (format #f "Invalid value: ~a" value)))
-  (when (<= value 1)
+  (if (<= value 1)
     (format #f
       (string-append
-        "~,2,"
+        "~,"
         (number->string (- VALUE-LEN 2))
         "h")
-      value))
-  (let ((mag (max (inexact->exact (floor (/ (log10 value) 3))) 0)))
-    (when (> mag (length MAGNITUDE))
-      (string-pad-right "PUMPED!" VALUE-LEN))
-    (let* ((scale (- (* mag 3))))
-        (string-pad-right
-          (format #f
-            (string-append
-              "~,2,"
-              (number->string (inexact->exact scale))
-              "f"
-              (list-ref MAGNITUDE mag))
-            value)
-          VALUE-LEN))))
+      value)
+    (let ((mag (max (inexact->exact (floor (/ (log10 value) 3))) 0)))
+      (if (> mag (length MAGNITUDE))
+        (string-pad-right "PUMPED!" VALUE-LEN))
+        (let* ((scale (- (* mag 3))))
+          (string-pad-right
+            (format #f
+              (string-append
+                "~,2,"
+                (number->string (inexact->exact scale))
+                "f"
+                (list-ref MAGNITUDE mag))
+              value)
+            VALUE-LEN)))))
 
 (define (format-change change)
   (let*
