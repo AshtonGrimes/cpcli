@@ -67,15 +67,19 @@ Options:
 
 (define MAGNITUDE (list " " "K" "M" "B" "T"))
 
-; Configurable global variables:
+; ----- Configurable global variables: -----
+
 (define CONV-DIGITS 5)
 (define RANK-LEN 3)
 (define NAME-LEN 8)
 (define VALUE-LEN 7)
 (define CHANGE-LEN 7)
+
 (define CONVS-PADDING (format #f "~3_"))
 (define TOKENS-PADDING (format #f "~5_"))
 (define TOP-PADDING (format #f "~3_"))
+
+; ------------------------------------------
 
 (define (format-rank n)
   (let ((s (number->string n)))
@@ -289,15 +293,21 @@ Options:
       (when e
         (err (string-append "API error: " (cdadar token-data))))))
   (display "\n")
-  (let loop ((data token-data))
-    (let ((this (car data)))
-      (format #t "~a~a ~a ~a~%" 
+  (if (= (length tokens) 1)
+    (let ((this (car token-data)))  
+      (format #t "~a~a ~a~%"
         TOKENS-PADDING
-        (format-name (car this) #f)
         (format-value (cdaddr this))
         (format-change (cdadr this))))
-    (unless (equal? (cdr data) '())
-      (loop (cdr data))))
+    (let loop ((data token-data))
+      (let ((this (car data)))
+        (format #t "~a~a ~a ~a~%" 
+          TOKENS-PADDING
+          (format-name (car this) #f)
+          (format-value (cdaddr this))
+          (format-change (cdadr this))))
+      (unless (equal? (cdr data) '())
+        (loop (cdr data)))))
   (unless do-top 
     (display "\n")))
 
