@@ -57,10 +57,11 @@ Options:
 (define (token-index lst name)
   (fold
     (lambda (i acc)
-      (unless acc
+      (if acc
+        acc
         (catch #t
           (lambda () (if (equal? (car (list-ref lst i)) name) i #f))
-          (lambda e '()))))
+          (lambda e #f))))
     #f
     (iota (length lst) 0)))
 
