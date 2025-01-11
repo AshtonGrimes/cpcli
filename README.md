@@ -5,7 +5,7 @@ Being that this program is among my first publically available software projects
 
 ## Usage
 
-The source code is the configuration; to modify the padding and column widths, change any of the global variables indicated with a comment.
+The source code is the configuration; to modify the padding and column widths, change any of the global variables under the global variable comment. `grep -n global $(which cpcli)`.
 
 Options can be used in any order.
 
@@ -22,24 +22,24 @@ Options:
 
 $ cpcli monero
 
-     146.10  -8.610%
+     Monero   199.03  +4.706%
 
 $ cpcli -c eur cardano chainlink
 
-     Cardano  0.51017 -7.992%
-     Chainli- 12.70   -8.520%
+     Chainli- 19.65   +2.254%
+     Cardano  0.90    +1.655%
 
 $ cpcli tether:40
 
-   40 USD -> 39.920 Tether
+   40 USD -> 40.01 Tether
 
 $ cpcli -t 5 
 
-   1   Bitcoin  87.59K  -0.527%
-   2   Ethereum 3.23K   -2.978%
-   3   Tether   1.00    -0.040%
-   4   Solana   205.52  -6.647%
-   5   BNB      612.36  -6.273%
+   1   Bitcoin  94.52K  +1.812%
+   2   Ethereum 3.26K   +1.042%
+   3   Tether   1.00    -0.008%
+   4   XRP      2.35    +3.120%
+   5   BNB      693.00  +0.786%
 ```
 
 ## License
