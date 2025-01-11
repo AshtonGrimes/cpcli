@@ -5,7 +5,9 @@ Being that this program is among my first publically available software projects
 
 ## Usage
 
-Options can be used together in any order.
+The source code is the configuration; to modify the padding and column widths, change any of the global variables indicated with a comment.
+
+Options can be used in any order.
 
 ```
 $ cpcli -h
